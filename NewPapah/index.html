@@ -31,6 +31,7 @@ function feedLoaded(result) {
   if (!result.error) {
     // Grab the container we will put the results into
   var links = document.getElementById("links");  
+  //alert(result.feed.entries.length);
   for (var i = 0; i < result.feed.entries.length; i++) {
       
       var container = document.getElementById("title"+i);
@@ -60,6 +61,8 @@ function OnLoad() {
   var feed = new google.feeds.Feed("http://rss.cnn.com/rss/edition.rss");
 
   // Calling load sends the request off.  It requires a callback function.
+
+  feed.setNumEntries(8);
   feed.load(feedLoaded);
 }
 
@@ -106,17 +109,17 @@ google.setOnLoadCallback(OnLoad);
 
   </div>
   <div id="left"class="animated fadeIn">
-    
+  
     <div class="headline_three"><a id="title1"></a></div><br />
     <div id="content1"></div><br />
-
     <div class="headline_three"><a id="title2"></a></div><br />
     <div id="content2"></div><br />
-    
     <div class="headline_three"><a id="title3"></a></div><br />
     <div id="content3"></div><br />
-
-  
+    <div class="headline_three"><a id="title4"></a></div><br />
+    <div id="content4"></div><br />
+    <div class="headline_three"><a id="title5"></a></div><br />
+    <div id="content5"></div><br />
     
   </div>
 
@@ -140,10 +143,18 @@ google.setOnLoadCallback(OnLoad);
       <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
      
      
-      <video width="450" height="240" controls>
+    <video id="video" width="450" height="260" >
       <source src="./movie.mp4" type="video/mp4" />
+      Get out of our newspaper, you and your browser!
    </video> 
-   <svg id='image' version="1.1">
+   <div id="video-controls">
+    <button type="button" id="play-pause">Play</button>
+    <input type="range" id="seek-bar" value="0">
+    <button type="button" id="mute">Mute</button>
+    <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+    <button type="button" id="full-screen">Full-Screen</button>
+  </div>
+   <svg width="0" height="0" id='image' version="1.1">
       <defs>
          <filter id="blackandwhite">
             <feColorMatrix values="0.3333 0.3333 0.3333 0 0
@@ -165,10 +176,6 @@ google.setOnLoadCallback(OnLoad);
     <p><a href="http://met.guc.edu.eg/Courses/CourseEdition.aspx?crsEdId=447">Created with care for the DMET706 Course</a></p>
   </div>
 </div>
-
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/main.js"></script>
-  <script src="local.js" ></script>
+<script src="script.js"></script>
 </body>
 </html>
