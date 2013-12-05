@@ -1159,3 +1159,5 @@ background:inherit;}
 	-o-animation-name: rollOut;
 	animation-name: rollOut;
 }
+
+video { filter:url(#blackandwhite);-webkit-filter:url(#blackandwhite);}

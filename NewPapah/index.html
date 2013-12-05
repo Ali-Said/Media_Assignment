@@ -3,7 +3,7 @@
 <head>
 <title>THE PAPER</title>
 
-
+   <meta charset="utf-8" />
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js"
     type="text/javascript"></script>
@@ -139,11 +139,21 @@ google.setOnLoadCallback(OnLoad);
       <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
       <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
      
-     <video width="450" height="240" controls>
-         <source src="movie.mp4" type="video/mp4">
-         <source src="movie.ogg" type="video/ogg">
-      Your browser does not support the video tag.
-      </video>
+     
+      <video width="450" height="240" controls>
+      <source src="./movie.mp4" type="video/mp4" />
+   </video> 
+   <svg id='image' version="1.1">
+      <defs>
+         <filter id="blackandwhite">
+            <feColorMatrix values="0.3333 0.3333 0.3333 0 0
+                             0.3333 0.3333 0.3333 0 0
+                             0.3333 0.3333 0.3333 0 0
+                             0      0      0      1 0"/>
+
+         </filter>
+      </defs>
+   </svg>
     <br />
       <div class="comment_box"> </div>
 
@@ -155,5 +165,10 @@ google.setOnLoadCallback(OnLoad);
     <p><a href="http://met.guc.edu.eg/Courses/CourseEdition.aspx?crsEdId=447">Created with care for the DMET706 Course</a></p>
   </div>
 </div>
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
+  <script src="local.js" ></script>
 </body>
 </html>
