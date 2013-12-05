@@ -2,9 +2,189 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>THE PAPER</title>
+
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js"
+    type="text/javascript"></script>
+
+    <style type="text/css">
+    @import url("http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.css");
+
+    #feedControl {
+    margin-top : 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width : 440px;
+    font-size: 12px;
+    color: #9CADD0;
+    }
+    </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+  <script type="text/javascript">
+    
+google.load("feeds", "1");
 
+// Our callback function, for when a feed is loaded.
+function feedLoaded(result) {
+  if (!result.error) {
+    // Grab the container we will put the results into
+  
+
+    //---- Titles
+
+    // T1
+
+    var containerT1 = document.getElementById("title1");
+    containerT1.innerHTML = '';
+
+    var entryT1 = result.feed.entries[0];
+      var divT1 = document.createElement("div");
+      divT1.appendChild(document.createTextNode(entryT1.title));
+       containerT1.appendChild(divT1);
+
+
+    // T2
+
+    var containerT2 = document.getElementById("title2");
+    containerT2.innerHTML = '';
+
+    var entryT2 = result.feed.entries[1];
+      var divT2 = document.createElement("div");
+      divT2.appendChild(document.createTextNode(entryT2.title));
+       containerT2.appendChild(divT2);
+
+    // T3
+
+    var containerT3 = document.getElementById("title3");
+    containerT3.innerHTML = '';
+
+    var entryT3 = result.feed.entries[2];
+      var divT3 = document.createElement("div");
+      divT3.appendChild(document.createTextNode(entryT3.title));
+       containerT3.appendChild(divT3);
+
+    // T4
+
+    var containerT4 = document.getElementById("title4");
+    containerT4.innerHTML = '';
+
+    var entryT4 = result.feed.entries[3];
+      var divT4 = document.createElement("div");
+      divT4.appendChild(document.createTextNode(entryT4.title));
+       containerT4.appendChild(divT4);
+
+
+    //---- Links
+
+    var containerL1 = document.getElementById("link1");
+    containerL1.innerHTML = '';
+
+    var entryL1 = result.feed.entries[0];
+      var divL1 = document.createElement("div");
+      divL1.appendChild(document.createTextNode(entryL1.link));
+       containerL1.appendChild(divL1);
+    //  containerT1.innerHTML=entryT1.link;
+
+    //L2
+
+    var containerL2 = document.getElementById("link2");
+    containerL2.innerHTML = '';
+
+    var entryL2 = result.feed.entries[1];
+      var divL2 = document.createElement("div");
+      divL2.appendChild(document.createTextNode(entryL2.link));
+       containerL2.appendChild(divL2);
+
+    //L3
+
+    var containerL3 = document.getElementById("link3");
+    containerL3.innerHTML = '';
+
+    var entryL3 = result.feed.entries[2];
+      var divL3 = document.createElement("div");
+      divL3.appendChild(document.createTextNode(entryL3.link));
+       containerL3.appendChild(divL3);
+
+    //L4
+
+    var containerL4 = document.getElementById("link4");
+    containerL4.innerHTML = '';
+
+    var entryL4 = result.feed.entries[3];
+      var divL4 = document.createElement("div");
+      divL4.appendChild(document.createTextNode(entryL4.link));
+       containerL4.appendChild(divL4);
+
+
+
+    //---- Content
+
+    //L4
+
+    var containerC1 = document.getElementById("content1");
+    containerC1.innerHTML = '';
+
+    var entryC1 = result.feed.entries[0];
+      var divC1 = document.createElement("div");
+      divC1.appendChild(document.createTextNode(entryC1.content));
+       containerC1.appendChild(divC1);
+
+
+       //L4
+
+    var containerC2 = document.getElementById("content2");
+    containerC2.innerHTML = '';
+
+    var entryC2 = result.feed.entries[1];
+      var divC2 = document.createElement("div");
+      divC2.appendChild(document.createTextNode(entryC2.content));
+       containerC2.appendChild(divC2);
+
+
+        //L4
+
+    var containerC3 = document.getElementById("content3");
+    containerC3.innerHTML = '';
+
+    var entryC3 = result.feed.entries[2];
+      var divC3 = document.createElement("div");
+      divC3.appendChild(document.createTextNode(entryC3.content));
+       containerC3.appendChild(divC3);
+
+
+        //L4
+
+    var containerC4 = document.getElementById("content4");
+    containerC4.innerHTML = '';
+
+    var entryC4 = result.feed.entries[3];
+      var divC4 = document.createElement("div");
+      divC4.appendChild(document.createTextNode(entryC4.content));
+       containerC4.appendChild(divC4);
+
+
+    // Loop through the feeds, putting the titles onto the page.
+    // Check out the result object for a list of properties returned in each entry.
+    // http://code.google.com/apis/ajaxfeeds/documentation/reference.html#JSON
+    
+    
+
+   
+  }
+}
+
+function OnLoad() {
+  // Create a feed instance that will grab Digg's feed.
+  var feed = new google.feeds.Feed("http://rss.cnn.com/rss/edition.rss");
+
+  // Calling load sends the request off.  It requires a callback function.
+  feed.load(feedLoaded);
+}
+
+google.setOnLoadCallback(OnLoad);
+    </script>
 </head>
 <body>
 <div id="wrapper">
@@ -41,33 +221,29 @@
       <li><a href="">Slaves of Fate to outdo Lord of the Rings & A Song of Ice and Fire</a></li>
     </ul>
 
-    <span class="headline_three">Lorem dolor sit amet</span><br />
-    <span class="small_caps">demonstraverunt</span>
-    <p>Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur <a href="">mutationem consuetudium lectorum</a>. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas.</p>
    
+  
 
-    <span class="headline_three">Lorem dolor sit amet</span><br />
-    <span class="small_caps">demonstraverunt</span>
-    <p>Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur <a href="">mutationem consuetudium lectorum</a>. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas.</p>
+    <a class="headline_three" id="title1"></a><br />
+    <a class="small_caps" id="link1"></a>
+    <div id="content1"></div>
 
   </div>
   <div id="left"class="animated fadeIn">
     
-    <span class="headline_three">Lorem dolor sit amet</span><br />
-    <span class="small_caps">demonstraverunt</span>
-    <p>Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur <a href="">mutationem consuetudium lectorum</a>. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas.</p>
+    <div class="headline_three"  id="title2"></div><br />
+    <div class="small_caps" id="link2"></div>
+    <div id="content2"></div>
     
-    <span class="headline_three">consectetuer elit</span><br />
-    <span class="small_caps">legunt saepius</span>
-    <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat</p>
+    <div class="headline_three"  id="title3"></div><br />
+    <div class="small_caps" id="link3"></div>
+    <div id="content3"></div>
     
-    <span class="headline_three">Lorem dolor sit amet</span><br />
-    <span class="small_caps">Mirum est notare</span>
-    <p>Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur <a href="">mutationem consuetudium lectorum</a>. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas.</p>
+    <div class="headline_three"  id="title4"></div><br />
+    <div class="small_caps" id="link4"></div>
+    <div id="content4"></div>
     
-    <span class="headline_three">consectetuer elit</span><br />
-    <span class="small_caps">Mirum est notare</span>
-    <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat</p>
+    
   </div>
 
 
