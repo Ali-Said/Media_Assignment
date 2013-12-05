@@ -37,12 +37,13 @@ function feedLoaded(result) {
     // T1
 
     var containerT1 = document.getElementById("title1");
-    containerT1.innerHTML = '';
-
     var entryT1 = result.feed.entries[0];
-      var divT1 = document.createElement("div");
-      divT1.appendChild(document.createTextNode(entryT1.title));
-       containerT1.appendChild(divT1);
+    containerT1.innerHTML = entryT1.title;
+    containerT1.href = entryT1.link;
+    var divC1 = document.createElement("div");
+    divC1.style="font-size:1.9em;";
+      divC1.appendChild(document.createTextNode(entryT1.content));
+       containerT1.appendChild(divC1);
 
 
     // T2
@@ -74,48 +75,6 @@ function feedLoaded(result) {
       var divT4 = document.createElement("div");
       divT4.appendChild(document.createTextNode(entryT4.title));
        containerT4.appendChild(divT4);
-
-
-    //---- Links
-
-    var containerL1 = document.getElementById("link1");
-    containerL1.innerHTML = '';
-
-    var entryL1 = result.feed.entries[0];
-      var divL1 = document.createElement("div");
-      divL1.appendChild(document.createTextNode(entryL1.link));
-       containerL1.appendChild(divL1);
-    //  containerT1.innerHTML=entryT1.link;
-
-    //L2
-
-    var containerL2 = document.getElementById("link2");
-    containerL2.innerHTML = '';
-
-    var entryL2 = result.feed.entries[1];
-      var divL2 = document.createElement("div");
-      divL2.appendChild(document.createTextNode(entryL2.link));
-       containerL2.appendChild(divL2);
-
-    //L3
-
-    var containerL3 = document.getElementById("link3");
-    containerL3.innerHTML = '';
-
-    var entryL3 = result.feed.entries[2];
-      var divL3 = document.createElement("div");
-      divL3.appendChild(document.createTextNode(entryL3.link));
-       containerL3.appendChild(divL3);
-
-    //L4
-
-    var containerL4 = document.getElementById("link4");
-    containerL4.innerHTML = '';
-
-    var entryL4 = result.feed.entries[3];
-      var divL4 = document.createElement("div");
-      divL4.appendChild(document.createTextNode(entryL4.link));
-       containerL4.appendChild(divL4);
 
 
 
