@@ -30,107 +30,28 @@ google.load("feeds", "1");
 function feedLoaded(result) {
   if (!result.error) {
     // Grab the container we will put the results into
-  
+  var links = document.getElementById("links");  
+  for (var i = 0; i < result.feed.entries.length; i++) {
+      
+      var container = document.getElementById("title"+i);
+      var entry = result.feed.entries[i];
+      container.innerHTML = entry.title;
+      container.href = entry.link;
 
-    //---- Titles
+      var content = document.getElementById("content"+i);
+      content.innerHTML = entry.content;
 
-    // T1
-
-    var containerT1 = document.getElementById("title1");
-    var entryT1 = result.feed.entries[0];
-    containerT1.innerHTML = entryT1.title;
-    containerT1.href = entryT1.link;
-    var divC1 = document.createElement("div");
-    divC1.style="font-size:1.9em;";
-      divC1.appendChild(document.createTextNode(entryT1.content));
-       containerT1.appendChild(divC1);
-
-
-    // T2
-
-    var containerT2 = document.getElementById("title2");
-    containerT2.innerHTML = '';
-
-    var entryT2 = result.feed.entries[1];
-      var divT2 = document.createElement("div");
-      divT2.appendChild(document.createTextNode(entryT2.title));
-       containerT2.appendChild(divT2);
-
-    // T3
-
-    var containerT3 = document.getElementById("title3");
-    containerT3.innerHTML = '';
-
-    var entryT3 = result.feed.entries[2];
-      var divT3 = document.createElement("div");
-      divT3.appendChild(document.createTextNode(entryT3.title));
-       containerT3.appendChild(divT3);
-
-    // T4
-
-    var containerT4 = document.getElementById("title4");
-    containerT4.innerHTML = '';
-
-    var entryT4 = result.feed.entries[3];
-      var divT4 = document.createElement("div");
-      divT4.appendChild(document.createTextNode(entryT4.title));
-       containerT4.appendChild(divT4);
-
-
-
-    //---- Content
-
-    //L4
-
-    var containerC1 = document.getElementById("content1");
-    containerC1.innerHTML = '';
-
-    var entryC1 = result.feed.entries[0];
-      var divC1 = document.createElement("div");
-      divC1.appendChild(document.createTextNode(entryC1.content));
-       containerC1.appendChild(divC1);
-
-
-       //L4
-
-    var containerC2 = document.getElementById("content2");
-    containerC2.innerHTML = '';
-
-    var entryC2 = result.feed.entries[1];
-      var divC2 = document.createElement("div");
-      divC2.appendChild(document.createTextNode(entryC2.content));
-       containerC2.appendChild(divC2);
-
-
-        //L4
-
-    var containerC3 = document.getElementById("content3");
-    containerC3.innerHTML = '';
-
-    var entryC3 = result.feed.entries[2];
-      var divC3 = document.createElement("div");
-      divC3.appendChild(document.createTextNode(entryC3.content));
-       containerC3.appendChild(divC3);
-
-
-        //L4
-
-    var containerC4 = document.getElementById("content4");
-    containerC4.innerHTML = '';
-
-    var entryC4 = result.feed.entries[3];
-      var divC4 = document.createElement("div");
-      divC4.appendChild(document.createTextNode(entryC4.content));
-       containerC4.appendChild(divC4);
-
-
+      var ls = document.createElement("li");
+      var anc = document.createElement("a");
+      anc.innerHTML = entry.title;
+      anc.href = entry.link;
+      ls.appendChild(anc);
+      links.appendChild(ls);
+    }
     // Loop through the feeds, putting the titles onto the page.
     // Check out the result object for a list of properties returned in each entry.
     // http://code.google.com/apis/ajaxfeeds/documentation/reference.html#JSON
-    
-    
-
-   
+  
   }
 }
 
@@ -169,39 +90,33 @@ google.setOnLoadCallback(OnLoad);
 
   <div id="linkbar" class="animated fadeIn"><span class="headline_three">List of News</span><br />
     <span class="small_caps">HOT ITEMS</span>
-    <ul>
-      <li><a href="">Egyptian League of Legends star talks about "El Gankaya"</a></li>
+    <ul id="links">
+      <!-- li><a href="">Egyptian League of Legends star talks about "El Gankaya"</a></li>
       <li><a href="">Women prosecuted at Egyptian court</a></li>
       <li><a href="">Bitches it is time to Hobba</a></li>
       <li><a href="">MET Students decide date of mass suicide</a></li>
       <li><a href="">GUC Responds by arming the students</a></li>
       <li><a href="">Hazem Abbas: "El final mesh sahl zay el midterm"</a></li>
       <li><a href="">Highest Video and Audio midterm grade: 80%</a></li>
-      <li><a href="">Slaves of Fate to outdo Lord of the Rings & A Song of Ice and Fire</a></li>
+      <li><a href="">Slaves of Fate to outdo Lord of the Rings & A Song of Ice and Fire</a></li -->
     </ul>
 
-   
-  
-
-    <a class="headline_three" id="title1"></a><br />
-    <a class="small_caps" id="link1"></a>
-    <div id="content1"></div>
+    <div class="headline_three"><a id="title0"></a></div><br />
+    <div id="content0"></div>
 
   </div>
   <div id="left"class="animated fadeIn">
     
-    <div class="headline_three"  id="title2"></div><br />
-    <div class="small_caps" id="link2"></div>
-    <div id="content2"></div>
+    <div class="headline_three"><a id="title1"></a></div><br />
+    <div id="content1"></div><br />
+
+    <div class="headline_three"><a id="title2"></a></div><br />
+    <div id="content2"></div><br />
     
-    <div class="headline_three"  id="title3"></div><br />
-    <div class="small_caps" id="link3"></div>
-    <div id="content3"></div>
-    
-    <div class="headline_three"  id="title4"></div><br />
-    <div class="small_caps" id="link4"></div>
-    <div id="content4"></div>
-    
+    <div class="headline_three"><a id="title3"></a></div><br />
+    <div id="content3"></div><br />
+
+  
     
   </div>
 
@@ -223,18 +138,16 @@ google.setOnLoadCallback(OnLoad);
       <q>Most people will read the information you have inside a pull quote... See, told ya so</q>
       <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
       <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
-      <video width="450" height="240" controls>
-  <source src="movie.mp4" type="video/mp4">
-  <source src="movie.ogg" type="video/ogg">
-Your browser does not support the video tag.
-</video>
-<br />
+     
+     <video width="450" height="240" controls>
+         <source src="movie.mp4" type="video/mp4">
+         <source src="movie.ogg" type="video/ogg">
+      Your browser does not support the video tag.
+      </video>
+    <br />
       <div class="comment_box"> </div>
 
     </div>
-
-
-
 
   </div>
   <div id="footer">
