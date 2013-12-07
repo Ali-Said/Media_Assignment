@@ -1,0 +1,80 @@
+
+<html>
+  <head>
+    <title>Online NewsPaper</title>
+   
+    <!--script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js"
+    type="text/javascript"></script -->
+
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+  	<!--script type="text/javascript" src="jquery-1.10.1.min.js"></script-->
+  	<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+   
+    <script type="text/javascript">
+   if (window.XMLHttpRequest)
+	  {// code for IE7+, Firefox, Chrome, Opera, Safari
+	  xmlhttp=new XMLHttpRequest();
+	  }
+	else
+	  {// code for IE6, IE5
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	xmlhttp.open("GET","http://feeds.bbci.co.uk/news/world/rss.xml",false);
+	xmlhttp.send();
+	xmlhttp.onreadystatechange=function() {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+    	xmlDoc=xmlhttp.responseXML;    			
+    	x=xmlDoc.getElementsByTagName("item");
+		i=0;
+		console.log(x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue);}, 1000);
+
+  }
+}
+
+	/*
+	if (window.DOMParser)
+	  {
+	  parser=new DOMParser();
+	  xmlDoc=parser.parseFromString(txt,"text/xml");
+	  }
+	else // Internet Explorer
+	  {
+	  xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+	  xmlDoc.async=false;
+	  xmlDoc.loadXML(txt);
+	  } 
+*/
+    </script>
+  </head>
+
+  <body>
+
+    <div id="content">
+
+    <div id="header">
+    <p class="title">Online NewsPaper</p>
+    </div>
+
+    <div id="menu">
+    <a class ="menuItems" href="">Menu</a>
+    <a class ="menuItems" href="">HTML</a>
+    <a class ="menuItems" href="">CSS</a>
+    <a class ="menuItems" href="">JavaScript</a>
+    </div>
+
+    <div id="column1">Loading...</div>
+
+    <div id="column2">Loading...</div>
+
+    <div id="column3">Loading...</div>
+
+    <div id="column4">Loading...</div>
+    
+    <div id="column5">Loading...</div>
+    
+    <div id="column6">Loading...</div>
+  </body>
+  
+</html>
