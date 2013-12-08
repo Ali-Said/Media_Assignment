@@ -76,7 +76,7 @@ background:url(images/comment_box_bg.gif) no-repeat top right;height:32px;}
 font-family:'Impact'; border-bottom:4px solid #1e3298;}
 .headline_three{font-size:1.3em;font-weight:bold;color:#333;text-transform:uppercase;
 border-bottom:#1e3298 2px solid;}
-.number{font-family:'Impact';float:left;line-height:1em; color:#1e3298; font-size:4.0em; margin-right:8px;}
+.number{font-family:'Impact';float:left;line-height:1em; color:#660000; font-size:4.0em; margin-right:8px;}
 .headline_url{text-decoration:none;color:#999; font-weight:bold; font-size:1.48em; line-height:1.5em;
 text-transform:uppercase; padding-bottom:3px;}
 .small_caps{color:#333; font-size:.7em; text-transform:uppercase; letter-spacing:6px; padding-top:1px;}
