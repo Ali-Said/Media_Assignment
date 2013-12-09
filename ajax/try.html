@@ -1,0 +1,105 @@
+<head>
+<!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script-->
+</head>
+<div id="result"> </div>
+
+<script type="text/javascript">
+
+// Create the XHR object.
+function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    // XHR for Chrome/Firefox/Opera/Safari.
+    xhr.open(method, url, true);
+    xhr.withCredentials = true;
+    console.log("XHR opened in Firefox/Chrome");
+  } else if (typeof XDomainRequest != "undefined") {
+    // XDomainRequest for IE.
+    xhr = new XDomainRequest();
+    xhr.withCredentials = true;
+    xhr.open(method, url);
+    console.log("XHR opened in explorer");
+  } else {
+    // CORS not supported.
+    console.log("CORS not supported");
+    xhr = null;
+  }
+  return xhr;
+}
+
+// Helper method to parse the title tag from the response.
+function getTitle(text) {
+  return text.match('<title>(.*)?</title>')[1];
+}
+
+// Make the actual CORS request.
+//function makeCorsRequest() {
+  // All HTML5 Rocks properties support CORS.
+  var url = 'http://feeds.bbci.co.uk/news/rss.xml';
+  var xhr = createCORSRequest('GET', url);
+  
+  if (!xhr) {
+    console.log('CORS not supported');
+  }
+
+  // Response handlers.
+  xhr.onload = function() {
+    var text = xhr.responseText;
+    var title = getTitle(text);
+    alert('Response from CORS request to ' + url + ': ' + title);
+  };
+
+  xhr.onerror = function() {
+    console.log('Woops, there was an error making the request.');
+  };
+
+  xhr.send();
+//}
+/*
+function ajaxRequest(){
+ var activexmodes=["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"] //activeX versions to check for in IE
+ if (window.ActiveXObject){ //Test for support for ActiveXObject in IE first (as XMLHttpRequest in IE7 is broken)
+  for (var i=0; i<activexmodes.length; i++){
+   try{
+    return new ActiveXObject(activexmodes[i])
+   }
+   catch(e){
+    //suppress error
+   }
+  }
+ }
+ else if (window.XMLHttpRequest) // if Mozilla, Safari etc
+  return new XMLHttpRequest()
+ else
+  return false
+}
+
+var mygetrequest=new ajaxRequest()
+if (mygetrequest.overrideMimeType)
+ mygetrequest.overrideMimeType('text/xml')
+mygetrequest.onreadystatechange=function(){
+ if (mygetrequest.readyState==4){
+  if (mygetrequest.status==200 || window.location.href.indexOf("http")==-1){
+   var xmldata=mygetrequest.responseXML //retrieve result as an XML object
+   var rssentries=xmldata.getElementsByTagName("item")
+   var output='<ul>'
+   for (var i=0; i<rssentries.length; i++){
+    output+='<li>'
+    output+='<a href="'+rssentries[i].getElementsByTagName('link')[0].firstChild.nodeValue+'">'
+    output+=rssentries[i].getElementsByTagName('title')[0].firstChild.nodeValue+'</a>'
+    output+='</li>'
+   }
+   output+='</ul>'
+   document.getElementById("result").innerHTML=output
+  }
+  else{
+   alert("An error has occured making the request")
+  }
+ }
+}
+
+mygetrequest.open("GET", "http://feeds.bbci.co.uk/news/rss.xml", true)
+mygetrequest.send(null)*/
+
+</script>
